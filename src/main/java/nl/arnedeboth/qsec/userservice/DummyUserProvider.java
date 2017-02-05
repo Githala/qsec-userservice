@@ -19,6 +19,7 @@ public class DummyUserProvider implements IUserProvider {
         users.add(new User(1, "Viktor", "Lantsov", "12345", new int[] {1 ,2, 3}));
         users.add(new User(2, "John", "Doe", "23451", new int[] {2} ));
         users.add(new User(3, "Jane", "Doe", "34512", new int[] {3} ));
+        users.add(new User(4, "Denna Maria", "Aska", "54321", new int[] {1} ));
     }
 
     @Override
