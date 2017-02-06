@@ -1,7 +1,7 @@
 package nl.arnedeboth.qsec.userservice.controllers;
 
 import com.google.gson.Gson;
-import nl.arnedeboth.qsec.userservice.DummyUserProvider;
+import nl.arnedeboth.qsec.userservice.providers.DummyUserProvider;
 import nl.arnedeboth.qsec.userservice.models.User;
 import nl.arnedeboth.qsec.userservice.providers.IUserProvider;
 import spark.Request;
@@ -43,7 +43,6 @@ public class UserController {
             response.status(400);
             return "No valid id has been provided.";
         }
-
 
         User user = userProvider.getUserById(maybeId.get());
 

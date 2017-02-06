@@ -1,4 +1,4 @@
-package nl.arnedeboth.qsec.userservice;
+package nl.arnedeboth.qsec.userservice.providers;
 
 import nl.arnedeboth.qsec.userservice.models.User;
 import nl.arnedeboth.qsec.userservice.providers.IUserProvider;
