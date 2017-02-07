@@ -8,15 +8,15 @@ public class User {
     private int id;
     private String firstName;
     private String lastName;
-    private String badgeId;
+    private String[] badgeIds;
     private int[] groupIds;
 
-    public User(int id, String firstName, String lastName, String badgeId, int[] groupIds)
+    public User(int id, String firstName, String lastName, String[] badgeIds, int[] groupIds)
     {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.badgeId = badgeId;
+        this.badgeIds = badgeIds;
 
         this.groupIds = groupIds;
     }
@@ -33,8 +33,8 @@ public class User {
         return lastName;
     }
 
-    public String getBadgeId() {
-        return badgeId;
+    public String[] getBadgeIds() {
+        return badgeIds;
     }
 
     public int[] getGroupIds() {

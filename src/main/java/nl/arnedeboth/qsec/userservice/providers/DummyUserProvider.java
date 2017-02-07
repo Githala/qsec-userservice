@@ -3,6 +3,7 @@ package nl.arnedeboth.qsec.userservice.providers;
 import nl.arnedeboth.qsec.userservice.models.User;
 import nl.arnedeboth.qsec.userservice.providers.IUserProvider;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -16,10 +17,10 @@ public class DummyUserProvider implements IUserProvider {
 
     public DummyUserProvider()
     {
-        users.add(new User(1, "Viktor", "Lantsov", "12345", new int[] {1 ,2, 3}));
-        users.add(new User(2, "John", "Doe", "23451", new int[] {2} ));
-        users.add(new User(3, "Jane", "Doe", "34512", new int[] {3} ));
-        users.add(new User(4, "Denna Maria", "Aska", "54321", new int[] {1} ));
+        users.add(new User(1, "Viktor", "Lantsov", new String[] {"12345", "f0279a7e"}, new int[] {1 ,2, 3}));
+        users.add(new User(2, "John", "Doe", new String[] {"23451", "6eeeb1ab"}, new int[] {2} ));
+        users.add(new User(3, "Jane", "Doe", new String[] {"34512"}, new int[] {3} ));
+        users.add(new User(4, "Denna Maria", "Aska", new String[] {"54321", "3d65b4ab"}, new int[] {1} ));
     }
 
     @Override
@@ -35,7 +36,7 @@ public class DummyUserProvider implements IUserProvider {
 
     @Override
     public User getUserByBadgeId(String badgeId) {
-        Optional<User> possibleUser = users.stream().filter(u -> badgeId.equals(u.getBadgeId())).findFirst();
+        Optional<User> possibleUser = users.stream().filter(u -> Arrays.stream(u.getBadgeIds()).anyMatch(bid -> bid.equals(badgeId))).findFirst();
         return possibleUser.orElse(null);
     }
 }
